@@ -1,0 +1,49 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: http://localhost:8081
+  description: Generated server url
+paths:
+  /api/v1/metrics/:
+    post:
+      tags:
+      - kafka-controller
+      operationId: reciveMetrics
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/MetricDto"
+        required: true
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: object
+components:
+  schemas:
+    MeasurementDto:
+      type: object
+      properties:
+        statistic:
+          type: string
+        value:
+          type: number
+          format: double
+    MetricDto:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        baseUnit:
+          type: string
+        measurements:
+          type: array
+          items:
+            $ref: "#/components/schemas/MeasurementDto"

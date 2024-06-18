@@ -1,0 +1,17 @@
+KafkaConsumer/HELP.md
+KafkaConsumer/target/
+!KafkaConsumer/.mvn/wrapper/maven-wrapper.jar
+!KafkaConsumer/**/src/main/**/target/
+!KafkaConsumer/**/src/test/**/target/
+
+KafkaProducer/HELP.md
+KafkaProducer/target/
+!KafkaProducer/.mvn/wrapper/maven-wrapper.jar
+!KafkaProducer/**/src/main/**/target/
+!KafkaProducer/**/src/test/**/target/
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr

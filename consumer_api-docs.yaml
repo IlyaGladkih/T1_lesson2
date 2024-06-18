@@ -1,0 +1,57 @@
+openapi: 3.0.1
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: http://localhost:8082
+  description: Generated server url
+paths:
+  /api/v1/metrics/{id}:
+    get:
+      tags:
+      - metric-controller
+      operationId: getAllMetric
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/MetricDto"
+  /api/v1/metrics/:
+    get:
+      tags:
+      - metric-controller
+      operationId: getAllMetric_1
+      responses:
+        "200":
+          description: OK
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/MetricDto"
+components:
+  schemas:
+    MetricDto:
+      type: object
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        baseUnit:
+          type: string
+        value:
+          type: number
+          format: double
+        change:
+          type: number
+          format: double
